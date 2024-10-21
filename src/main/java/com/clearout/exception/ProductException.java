@@ -1,0 +1,7 @@
+package com.clearout.exception;
+
+public class ProductException extends Exception{
+    public ProductException(String message) {
+        super(message);
+    }
+}
