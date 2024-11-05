@@ -30,6 +30,25 @@ public class AuthenticationService {
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
 
+    private String capitalizeFirstLetterOfEachWord(String input) {
+        if (input == null || input.isEmpty()) {
+            return input;
+        }
+
+        String[] words = input.split("\\s+");
+        StringBuilder capitalizedString = new StringBuilder();
+
+        for (String word : words) {
+            if (word.length() > 0) {
+                capitalizedString.append(Character.toUpperCase(word.charAt(0)))
+                        .append(word.substring(1).toLowerCase())
+                        .append(" ");
+            }
+        }
+
+        // Remove the trailing space and return the result
+        return capitalizedString.toString().trim();
+    }
 
     public AuthenticationResponse registerIndividualUser(IndividualUserRegisterRequest request) throws IndividualUserException {
 
@@ -48,11 +67,11 @@ public class AuthenticationService {
                 .role(Role.INDIVIDUAL_USER)
                 .address(Address.builder()
                         .houseNo(request.addressDto().houseNo())
-                        .landmark(request.addressDto().landmark())
-                        .street(request.addressDto().street())
-                        .city(request.addressDto().city())
-                        .state(request.addressDto().state())
-                        .country(request.addressDto().country())
+                        .landmark(capitalizeFirstLetterOfEachWord(request.addressDto().landmark()))
+                        .street(capitalizeFirstLetterOfEachWord(request.addressDto().street()))
+                        .city(capitalizeFirstLetterOfEachWord(request.addressDto().city()))
+                        .state(capitalizeFirstLetterOfEachWord(request.addressDto().state()))
+                        .country(capitalizeFirstLetterOfEachWord(request.addressDto().country()))
                         .zip(request.addressDto().zip())
                         .build())
                 .createdAt(LocalDateTime.now())
@@ -79,11 +98,11 @@ public class AuthenticationService {
                 .role(Role.BUSINESS)
                 .address(Address.builder()
                         .houseNo(request.addressDto().houseNo())
-                        .landmark(request.addressDto().landmark())
-                        .street(request.addressDto().street())
-                        .city(request.addressDto().city())
-                        .state(request.addressDto().state())
-                        .country(request.addressDto().country())
+                        .landmark(capitalizeFirstLetterOfEachWord(request.addressDto().landmark()))
+                        .street(capitalizeFirstLetterOfEachWord(request.addressDto().street()))
+                        .city(capitalizeFirstLetterOfEachWord(request.addressDto().city()))
+                        .state(capitalizeFirstLetterOfEachWord(request.addressDto().state()))
+                        .country(capitalizeFirstLetterOfEachWord(request.addressDto().country()))
                         .zip(request.addressDto().zip())
                         .build())
                 .createdAt(LocalDateTime.now())
@@ -109,11 +128,11 @@ public class AuthenticationService {
                 .role(Role.REPAIR_AGENT)
                 .address(Address.builder()
                         .houseNo(request.addressDto().houseNo())
-                        .landmark(request.addressDto().landmark())
-                        .street(request.addressDto().street())
-                        .city(request.addressDto().city())
-                        .state(request.addressDto().state())
-                        .country(request.addressDto().country())
+                        .landmark(capitalizeFirstLetterOfEachWord(request.addressDto().landmark()))
+                        .street(capitalizeFirstLetterOfEachWord(request.addressDto().street()))
+                        .city(capitalizeFirstLetterOfEachWord(request.addressDto().city()))
+                        .state(capitalizeFirstLetterOfEachWord(request.addressDto().state()))
+                        .country(capitalizeFirstLetterOfEachWord(request.addressDto().country()))
                         .zip(request.addressDto().zip())
                         .build())
                 .createdAt(LocalDateTime.now())
@@ -140,11 +159,11 @@ public class AuthenticationService {
                 .role(Role.E_WASTE_AGENT)
                 .address(Address.builder()
                         .houseNo(request.addressDto().houseNo())
-                        .landmark(request.addressDto().landmark())
-                        .street(request.addressDto().street())
-                        .city(request.addressDto().city())
-                        .state(request.addressDto().state())
-                        .country(request.addressDto().country())
+                        .landmark(capitalizeFirstLetterOfEachWord(request.addressDto().landmark()))
+                        .street(capitalizeFirstLetterOfEachWord(request.addressDto().street()))
+                        .city(capitalizeFirstLetterOfEachWord(request.addressDto().city()))
+                        .state(capitalizeFirstLetterOfEachWord(request.addressDto().state()))
+                        .country(capitalizeFirstLetterOfEachWord(request.addressDto().country()))
                         .zip(request.addressDto().zip())
                         .build())
                 .createdAt(LocalDateTime.now())
