@@ -48,7 +48,7 @@ public class SecurityConfiguration {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000", "http://localhost:4000")); // Define allowed origins
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000", "http://localhost:4000","https://clear-out-rho.vercel.app")); // Define allowed origins
         configuration.setAllowedMethods(Collections.singletonList("*")); // Allow all HTTP methods
         configuration.setAllowedHeaders(Collections.singletonList("*")); // Allow all headers
         configuration.setAllowCredentials(true); // Allow credentials (cookies, authorization headers, etc.)
