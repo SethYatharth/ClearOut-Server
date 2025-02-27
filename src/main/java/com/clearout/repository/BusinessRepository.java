@@ -1,5 +1,6 @@
 package com.clearout.repository;
 
+import com.clearout.dto.BusinessDto;
 import com.clearout.entity.Business;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
